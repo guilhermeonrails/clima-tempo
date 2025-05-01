@@ -1,185 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel de Clima</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-200 to-white min-h-screen p-6 font-sans">
 
-  <h1 class="text-4xl font-bold text-center text-blue-800 mb-10">🌤️ Painel de Clima - Cidades Fictícias</h1>
+  <h1 class="text-4xl font-bold text-center text-blue-800 mb-10">🌎 Painel de Clima - Capitais do Mundo</h1>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    
-    <!-- Cartão 1 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">São Nimbus</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">28°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Ensolarado</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">42%</span></p>
-    </div>
+  <div id="cartoes" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
 
-    <!-- Cartão 2 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">Chuvópolis</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">21°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Chuva Leve</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">78%</span></p>
-    </div>
+  <script>
+    const cidades = [
+      { nome: "São Paulo", temperatura: "26°C", clima: "Parcialmente Nublado", umidade: "55%" },
+      { nome: "Rio de Janeiro", temperatura: "31°C", clima: "Muito Quente", umidade: "60%" },
+      { nome: "Buenos Aires", temperatura: "22°C", clima: "Chuva Leve", umidade: "70%" },
+      { nome: "Londres", temperatura: "15°C", clima: "Nublado", umidade: "80%" },
+      { nome: "Paris", temperatura: "17°C", clima: "Chuvisco", umidade: "75%" },
+      { nome: "Tóquio", temperatura: "24°C", clima: "Ensolarado", umidade: "65%" },
+      { nome: "Pequim", temperatura: "19°C", clima: "Neblina", umidade: "58%" },
+      { nome: "Cidade do México", temperatura: "27°C", clima: "Parcialmente Nublado", umidade: "50%" },
+      { nome: "Nova York", temperatura: "20°C", clima: "Trovoadas", umidade: "67%" },
+      { nome: "Lisboa", temperatura: "25°C", clima: "Sol Firme", umidade: "45%" },
+      { nome: "Berlim", temperatura: "16°C", clima: "Nublado", umidade: "72%" },
+      { nome: "Moscou", temperatura: "10°C", clima: "Chuva Fraca", umidade: "81%" },
+      { nome: "Cairo", temperatura: "35°C", clima: "Seco", umidade: "20%" },
+      { nome: "Canberra", temperatura: "12°C", clima: "Frio e Seco", umidade: "35%" },
+      { nome: "Ottawa", temperatura: "7°C", clima: "Nevando", umidade: "90%" }
+    ];
 
-    <!-- Cartão 3 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">Ventania</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">19°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Vento Forte</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">53%</span></p>
-    </div>
+    const container = document.getElementById("cartoes");
 
-    <!-- Cartão 4 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">Nevália</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">-3°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Neve</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">60%</span></p>
-    </div>
-
-    <!-- Cartão 5 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">Secalândia</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">35°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Seco</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">15%</span></p>
-    </div>
-
-    <!-- Cartão 6 -->
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-      <h2 class="text-2xl font-semibold text-blue-700 mb-2">Neblínia</h2>
-      <p class="text-gray-600">Temperatura: <span class="font-bold">16°C</span></p>
-      <p class="text-gray-600">Clima: <span class="font-bold">Neblina</span></p>
-      <p class="text-gray-600">Umidade: <span class="font-bold">88%</span></p>
-    </div>
-
-    <!-- Cartão 7 -->
-<div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Calorópolis</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">39°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Muito Quente</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">25%</span></p>
-  </div>
-  
-  <!-- Cartão 8 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Tempestina</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">24°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Tempestade</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">90%</span></p>
-  </div>
-  
-  <!-- Cartão 9 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Brisópolis</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">22°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Brisa Leve</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">50%</span></p>
-  </div>
-  
-  <!-- Cartão 10 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Granizal</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">6°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Granizo</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">75%</span></p>
-  </div>
-  
-  <!-- Cartão 11 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Umidópolis</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">27°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Úmido</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">95%</span></p>
-  </div>
-  
-  <!-- Cartão 12 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Geleira Sul</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">-12°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Congelante</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">30%</span></p>
-  </div>
-  
-  <!-- Cartão 13 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Solária</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">33°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Sol Firme</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">40%</span></p>
-  </div>
-  
-  <!-- Cartão 14 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Orvalhada</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">18°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Orvalho</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">85%</span></p>
-  </div>
-  
-  <!-- Cartão 15 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Trovoal</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">20°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Trovoadas</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">65%</span></p>
-  </div>
-  
-  <!-- Cartão 16 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Chuvinha</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">23°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Chuvisco</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">70%</span></p>
-  </div>
-  
-  <!-- Cartão 17 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Bruma Azul</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">14°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Bruma</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">92%</span></p>
-  </div>
-  
-  <!-- Cartão 18 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Desértica</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">42°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Desértico</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">10%</span></p>
-  </div>
-  
-  <!-- Cartão 19 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Ilha das Brisas</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">26°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Brisa Marinha</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">58%</span></p>
-  </div>
-  
-  <!-- Cartão 20 -->
-  <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Montes Gelados</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">-5°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Frio de Montanha</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">35%</span></p>
-  </div>
-
-  <!-- Cartão 21 -->
-<div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
-    <h2 class="text-2xl font-semibold text-blue-700 mb-2">Luz do Sol</h2>
-    <p class="text-gray-600">Temperatura: <span class="font-bold">28°C</span></p>
-    <p class="text-gray-600">Clima: <span class="font-bold">Ensolarado</span></p>
-    <p class="text-gray-600">Umidade: <span class="font-bold">60%</span></p>
-  </div>
-
-  </div>
+    cidades.forEach(cidade => {
+      container.innerHTML += `
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100">
+          <h2 class="text-2xl font-semibold text-blue-700 mb-2">${cidade.nome}</h2>
+          <p class="text-gray-600">Temperatura: <span class="font-bold">${cidade.temperatura}</span></p>
+          <p class="text-gray-600">Clima: <span class="font-bold">${cidade.clima}</span></p>
+          <p class="text-gray-600">Umidade: <span class="font-bold">${cidade.umidade}</span></p>
+        </div>
+      `;
+    });
+  </script>
 </body>
 </html>
